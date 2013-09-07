@@ -1,13 +1,24 @@
 class UsersController < ApplicationController
-  # GET /user_rank
-  # GET /user_rank.json
+  # GET /users/rank/:id
   def rank
-    @territory = User.find(:first, :conditions => {:foursq_id => params[:id]}).territory
-    @users = User.find(:all, :order => "territory DESC")
+    @user = User.find(:first, :conditions => ["foursq_id = :foursq_id", { foursq_id: params[:id] }])
+    if @user
+      territory = @user.territory
+      @rank = User.find(:all, :conditions => ["territory > :territory", { territory: territory }]).length + 1
+    else
+      @rank = nil
+    end
 
-    respond_to do |format|
-      format.html # rank.html.erg
-      format.json { render json: @users }
+    render json: { rank: @rank }
+  end
+
+  # GET /user/update/:id?territory=
+  def update
+    @user = User.find(:first, :conditions => ["foursq_id = :foursq_id", { foursq_id: params[:id] }])
+    if @user && @user.update_attributes({foursq_id: params[:id], territory: params[:territory]})
+      redirect_to action: 'rank', id: params[:id]
+    else
+      render json: nil
     end
   end
 
@@ -65,21 +76,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.json
-  def update
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /users/1
   # DELETE /users/1.json

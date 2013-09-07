@@ -1,5 +1,6 @@
 Nawabari::Application.routes.draw do
-  match 'user_rank', :controller => :users, :action => :rank
+  match 'users/rank/:id',   to: 'users#rank'
+  match 'users/update/:id', to: 'users#update'
   match 'users/index' 
 
   # The priority is based upon order of creation:
