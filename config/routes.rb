@@ -1,4 +1,7 @@
 Nawabari::Application.routes.draw do
+  match 'user_rank', :controller => :users, :action => :rank
+  match 'users/index' 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

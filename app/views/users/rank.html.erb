@@ -1,0 +1,23 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Foursq</th>
+    <th>Territory</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.foursq_id %></td>
+    <td><%= user.territory %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= @territory %></p>
+<br />
+
+<%= link_to 'New User', new_user_path %>
