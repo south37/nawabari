@@ -5,7 +5,7 @@ Nawabari::Application.routes.draw do
   
   delete 'users/:id', to: 'users#destroy'
   match 'users/new'
-  match 'users/create'
+  post 'users', to: 'users#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
