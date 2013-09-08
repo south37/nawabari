@@ -1,7 +1,11 @@
 Nawabari::Application.routes.draw do
   match 'users/rank/:id',   to: 'users#rank'
   match 'users/update/:id', to: 'users#update'
-  match 'users/index' 
+  match 'users/index'
+  
+  match 'users/destroy/:id', to: 'users#destroy'
+  match 'users/new'
+  match 'users/create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
