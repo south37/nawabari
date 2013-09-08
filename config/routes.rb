@@ -1,9 +1,9 @@
 Nawabari::Application.routes.draw do
-  match 'users/rank/:id',   to: 'users#rank'
-  match 'users/update/:id', to: 'users#update'
-  match 'users/index'
+  get 'users/rank/:id',   to: 'users#rank'
+  get 'users/update/:id', to: 'users#update'
+  get 'users', to: 'users#index'
   
-  match 'users/destroy/:id', to: 'users#destroy'
+  delete 'users/:id', to: 'users#destroy'
   match 'users/new'
   match 'users/create'
 
