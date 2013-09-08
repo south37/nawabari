@@ -3,8 +3,8 @@ Nawabari::Application.routes.draw do
   get 'users/update/:id', to: 'users#update'
   get 'users', to: 'users#index'
   
-  delete 'users/:id', to: 'users#destroy'
-  match 'users/new'
+  delete 'users/:id', to: 'users#destroy', as: 'user'
+  get 'users/new', to: 'users#new'
   post 'users', to: 'users#create'
 
   # The priority is based upon order of creation:
