@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @rank = nil
     end
 
-    render json: { rank: @rank }
+    render json: [{ rank: @rank }]
   end
 
   # GET /user/update/:id?territory=
