@@ -6,11 +6,13 @@ class UsersController < ApplicationController
       territory = user.territory
       superior_users = User.find(:all, :conditions => ["territory > :territory", { territory: territory }])
       @rank = superior_users.length + 1
+      @users_num = User.all.length
     else
       @rank = nil
+      @users_num = nil
     end
 
-    render json: [{ rank: @rank }]
+    render json: [{ rank: @rank, users_num: @users_num }]
   end
 
   # GET /user/update/:id?territory=
