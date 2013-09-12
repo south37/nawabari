@@ -1,6 +1,6 @@
 Nawabari::Application.routes.draw do
   get 'users/rank/:id',   to: 'users#rank'
-  get 'users/update/:id/:territory', to: 'users#update'
+  get 'users/update/:id/:territory' => 'users#update', territory: /.*/
   get 'users',            to: 'users#index'
   
   delete 'users/:id', to: 'users#destroy', as: 'user'
