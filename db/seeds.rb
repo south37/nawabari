@@ -17,4 +17,5 @@ User.create([
 ])
 user = User.create(foursq_id: 5, name: 'ooo', area: 502400)
 
+Territory.delete_all
 Territory.create(lat: 35.663, lng: 139.695, name: '渋谷', venue_id: 2, been_here: 100, user: user)
