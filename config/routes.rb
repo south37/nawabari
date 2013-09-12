@@ -1,6 +1,6 @@
 Nawabari::Application.routes.draw do
-  get 'territories/:user_id', to: 'territories#index_with_user'
-  get 'territories',          to: 'territories#index'
+  get 'territories/with_user/:user_id', to: 'territories#index_with_user'
+  get 'territories',        to: 'territories#index'
   delete 'territories/:id', to: 'territories#destroy', as: 'territory'
   get    'territories/new', to: 'territories#new'
   post   'territories',     to: 'territories#create'

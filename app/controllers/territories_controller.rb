@@ -1,4 +1,9 @@
 class TerritoriesController < ApplicationController
+  # GET /territories/:user_id
+  def index_with_user
+    render json: nil
+  end
+ 
   # GET /territories
   # GET /territories.json
   def index
@@ -43,22 +48,6 @@ class TerritoriesController < ApplicationController
         format.json { render json: @territory, status: :created, location: @territory }
       else
         format.html { render action: "new" }
-        format.json { render json: @territory.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /territories/1
-  # PUT /territories/1.json
-  def update
-    @territory = Territory.find(params[:id])
-
-    respond_to do |format|
-      if @territory.update_attributes(params[:territory])
-        format.html { redirect_to @territory, notice: 'Territory was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
         format.json { render json: @territory.errors, status: :unprocessable_entity }
       end
     end
