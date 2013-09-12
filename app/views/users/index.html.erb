@@ -2,16 +2,16 @@
 
 <table>
   <tr>
-    <th>Foursq ID</th>
+    <th>ID</th>
+    <th>Name</th>
     <th>Territory</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= user.foursq_id %></td>
+    <td><%= user.name %></td>
     <td><%= user.territory %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
