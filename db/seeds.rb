@@ -14,7 +14,7 @@ User.create([
   { foursq_id: 3, name: 'www', area: 3.0 },
   { foursq_id: 4, name: 'aaa', area: 3.0 }
 ])
-user = User.create(foursq_id: 5, name: 'ooo', area: 502400)
+user = User.create(foursq_id: 5, name: 'ooo', area: 5024000)
 
 Territory.delete_all
-Territory.create(lat: 35.663, lng: 139.695, name: '渋谷', venue_id: 2, been_here: 100, user: user)
+Territory.create(lat: 35.663, lng: 139.695, name: '渋谷', venue_id: 2, been_here: 1000, user: user)
