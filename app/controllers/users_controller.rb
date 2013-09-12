@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   # GET /user/ranking/:num
   def ranking
     ranker_users = User.find(:all, limit: params[:num], order: 'area DESC')
-    render json: ranker_users
+    render json: { type: :top_five, top_five: ranker_users }
   end
 
   # GET /users
