@@ -5,7 +5,7 @@ class CreateTerritories < ActiveRecord::Migration
       t.float :lng
       t.string :name
       t.integer :been_here
-      t.integer :venue_id
+      t.string :venue_id
       t.references :user
 
       t.timestamps
