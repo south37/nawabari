@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :territories
   attr_accessible :foursq_id, :name, :area
 
   validates :foursq_id, :name, :area, presence: true
