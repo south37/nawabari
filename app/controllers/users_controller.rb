@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if ( (user && user.update_attributes(user_params)) || User.new(user_params).save )
       redirect_to action: 'rank', id: params[:id]
     else
-      render json: nil
+      render json: [] 
     end
   end
 
