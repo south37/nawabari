@@ -29,7 +29,8 @@ class UsersController < ApplicationController
 
   # GET /user/ranking/:num
   def ranking
-    render json: nil
+    ranker_users = User.find(:all, limit: params[:num], order: 'territory DESC')
+    render json: ranker_users
   end
 
   # GET /users
