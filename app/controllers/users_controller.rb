@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       @users_num = nil
     end
 
-    render json: [{ rank: @rank, users_num: @users_num }]
+    render json: { type: :rank, rank_info: { rank: @rank, users_num: @users_num  }}
   end
 
   # GET /user/update/:id/:name/:area
