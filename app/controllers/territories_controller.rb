@@ -7,6 +7,7 @@ class TerritoriesController < ApplicationController
     ts_hash = []
     territories.each do |territory|
       t_hash = territory.attributes
+      t_hash.store 'beenHere', territory.been_here
       t_hash.store 'venueId', territory.venue_id
       t_hash.store 'userId',  territory.user_id
       ts_hash << t_hash
