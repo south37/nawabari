@@ -1,7 +1,6 @@
 Nawabari::Application.routes.draw do
   get 'territories/:user_id', to: 'territories#index_with_user'
   get 'territories',          to: 'territories#index'
-  
   delete 'territories/:id', to: 'territories#destroy', as: 'territory'
   get    'territories/new', to: 'territories#new'
   post   'territories',     to: 'territories#create'
@@ -10,7 +9,6 @@ Nawabari::Application.routes.draw do
   get 'users/update/:id/:name/:area' => 'users#update', area: /.*/
   get 'users',               to: 'users#index'
   get 'users/ranking/:num/', to: 'users#ranking'
-  
   delete 'users/:id', to: 'users#destroy', as: 'user'
   get    'users/new', to: 'users#new'
   post   'users',     to: 'users#create'
