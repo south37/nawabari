@@ -15,10 +15,10 @@ class UsersController < ApplicationController
     render json: [{ rank: @rank, users_num: @users_num }]
   end
 
-  # GET /user/update/:id/:territory
+  # GET /user/update/:id/:name/:territory
   def update
     user = find_user_by_foursq_id params[:id]
-    user_params = { foursq_id: params[:id], territory: params[:territory] }
+    user_params = { foursq_id: params[:id], name: params[:name], territory: params[:territory] }
     
     if ( (user && user.update_attributes(user_params)) || User.new(user_params).save )
       redirect_to action: 'rank', id: params[:id]
