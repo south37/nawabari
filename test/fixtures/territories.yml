@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lat: 1.5
+  lng: 1.5
+  name: MyString
+  been_here: 1
+  venue_id: 1
+  user: 
+
+two:
+  lat: 1.5
+  lng: 1.5
+  name: MyString
+  been_here: 1
+  venue_id: 1
+  user: 

@@ -1,4 +1,7 @@
 Nawabari::Application.routes.draw do
+  resources :territories
+
+
   get 'users/rank/:id',      to: 'users#rank'
   get 'users/update/:id/:name/:area' => 'users#update', area: /.*/
   get 'users',               to: 'users#index'

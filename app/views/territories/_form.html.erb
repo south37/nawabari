@@ -1,0 +1,41 @@
+<%= form_for(@territory) do |f| %>
+  <% if @territory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@territory.errors.count, "error") %> prohibited this territory from being saved:</h2>
+
+      <ul>
+      <% @territory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lat %><br />
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :lng %><br />
+    <%= f.text_field :lng %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :been_here %><br />
+    <%= f.number_field :been_here %>
+  </div>
+  <div class="field">
+    <%= f.label :venue_id %><br />
+    <%= f.number_field :venue_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
