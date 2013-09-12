@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users/rank/:id
   def rank
-    user = find_user_by_foursq_id params[:id]
+    user = User.find_user_by_foursq_id params[:id]
     if user
       area = user.area
       superior_users = User.find(:all, :conditions => ["area > :area", { area: area }])
@@ -82,10 +82,5 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
-  end
-
-  private
-  def find_user_by_foursq_id(id)
-    User.find(:first, :conditions => ["foursq_id = :foursq_id", { foursq_id: id }])
   end
 end

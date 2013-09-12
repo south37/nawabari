@@ -1,7 +1,7 @@
 class TerritoriesController < ApplicationController
   # GET /territories/:user_id
   def index_with_user
-    user = User.find_by_id(params[:user_id])
+    user = User.find_user_by_foursq_id params[:user_id]
     territories = user.territories 
     render json: territories 
   end
