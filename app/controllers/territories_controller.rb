@@ -2,8 +2,17 @@ class TerritoriesController < ApplicationController
   # GET /territories/:user_id
   def index_with_user
     user = User.find_user_by_foursq_id params[:user_id]
-    territories = user.territories 
-    render json: territories 
+    territories = user.territories
+
+    ts_hash = []
+    territories.each do |territory|
+      t_hash = territory.attributes
+      t_hash.store 'venueId', territory.venue_id
+      t_hash.store 'userId',  territory.user_id
+      ts_hash << t_hash
+    end
+
+    render json: ts_hash 
   end
  
   # GET /territories
