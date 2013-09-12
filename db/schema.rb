@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130912021552) do
 
   create_table "users", :force => true do |t|
     t.integer  "foursq_id"
-    t.float    "territory"
+    t.float    "area"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "name"

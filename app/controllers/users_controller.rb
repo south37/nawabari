@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   def rank
     user = find_user_by_foursq_id params[:id]
     if user
-      territory = user.territory
-      superior_users = User.find(:all, :conditions => ["territory > :territory", { territory: territory }])
+      area = user.area
+      superior_users = User.find(:all, :conditions => ["area > :area", { area: area }])
       @rank = superior_users.length + 1
       @users_num = User.all.length
     else
@@ -15,10 +15,10 @@ class UsersController < ApplicationController
     render json: [{ rank: @rank, users_num: @users_num }]
   end
 
-  # GET /user/update/:id/:name/:territory
+  # GET /user/update/:id/:name/:area
   def update
     user = find_user_by_foursq_id params[:id]
-    user_params = { foursq_id: params[:id], name: params[:name], territory: params[:territory] }
+    user_params = { foursq_id: params[:id], name: params[:name], area: params[:area] }
     
     if ( (user && user.update_attributes(user_params)) || User.new(user_params).save )
       redirect_to action: 'rank', id: params[:id]
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   # GET /user/ranking/:num
   def ranking
-    ranker_users = User.find(:all, limit: params[:num], order: 'territory DESC')
+    ranker_users = User.find(:all, limit: params[:num], order: 'area DESC')
     render json: ranker_users
   end
 
