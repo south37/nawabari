@@ -13,7 +13,7 @@ class TerritoriesController < ApplicationController
       ts_hash << t_hash
     end
 
-    render json: ts_hash 
+    render json: { type: :territories, territories: ts_hash }
   end
  
   # GET /territories
