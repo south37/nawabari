@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     render json: [{ rank: @rank, users_num: @users_num }]
   end
 
-  # GET /user/update/:id?territory=
+  # GET /user/update/:id/:territory
   def update
     user = find_user_by_foursq_id params[:id]
     user_params = { foursq_id: params[:id], territory: params[:territory] }
