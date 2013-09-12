@@ -27,6 +27,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /user/ranking/:num
+  def ranking
+    render json: nil
+  end
+
   # GET /users
   # GET /users.json
   def index
