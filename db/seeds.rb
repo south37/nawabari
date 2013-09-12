@@ -8,7 +8,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.delete_all
-User.connection.execute("delete from sqlite_sequence where name='blogs'")
 User.create([
   { foursq_id: 1, name: 'baribari', area: 2.0 },
   { foursq_id: 2, name: 'wat', area: 3.0 },
