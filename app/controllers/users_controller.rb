@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   # GET /user/update/:id/:name/:area
   def update
-    user = find_user_by_foursq_id params[:id]
+    user = User.find_user_by_foursq_id params[:id]
     user_params = { foursq_id: params[:id], name: params[:name], area: params[:area] }
     
     if ( (user && user.update_attributes(user_params)) || User.new(user_params).save )
