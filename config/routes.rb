@@ -1,17 +1,17 @@
 Nawabari::Application.routes.draw do
-  get 'territories/with_user/:user_id', to: 'territories#index_with_user'
-  get 'territories',        to: 'territories#index'
+  get    'territories/with_user/:user_id', to: 'territories#index_with_user'
+  get    'territories',     to: 'territories#index'
   delete 'territories/:id', to: 'territories#destroy', as: 'territory'
   get    'territories/new', to: 'territories#new'
   post   'territories',     to: 'territories#create'
 
-  get 'users/rank/:id',      to: 'users#rank'
-  get 'users/update/:id/:name/:area' => 'users#update', area: /\d+(\.\d+)?/
-  get 'users',               to: 'users#index'
-  get 'users/ranking/:num/', to: 'users#ranking'
-  delete 'users/:id', to: 'users#destroy', as: 'user'
-  get    'users/new', to: 'users#new'
-  post   'users',     to: 'users#create'
+  get    'users/rank/:id',      to: 'users#rank'
+  get    'users/update/:id/:name/:area' => 'users#update', area: /\d+(\.\d+)?/
+  get    'users',               to: 'users#index'
+  get    'users/ranking/:num/', to: 'users#ranking'
+  delete 'users/:id',           to: 'users#destroy', as: 'user'
+  get    'users/new',           to: 'users#new'
+  post   'users',               to: 'users#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
